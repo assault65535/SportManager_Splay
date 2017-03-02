@@ -22,14 +22,16 @@ struct inf{
     char name[20];
     int cls,grade;
 };
-
+//information of athlete
 const int MAXN = 10000;
 const int INF = 0x3f3f3f3f;
 
 int MaxGrade(int l,int r);
 void update(int pos, int n,int key,void (*updater)(int root,int key));
 void updatec(int rt,int v);
+//class
 void updateg(int rt,int v);
+//grade
 void prtTree();
 void Delete(int pos,int n);
 void Insert(int pos, inf A[],int size);
@@ -38,7 +40,7 @@ int getKth(int k,int rt);
 int Build(inf A[],int l,int r,int fa);
 void initSplay();
 int newNode(int fa,inf * tmp);
-
+void toArray(inf A[],int l,int r);
 //Algorithm
 
 void Sort(inf A[],int size);
@@ -49,7 +51,7 @@ void swap(int * a,int  * b);
 
 
 //UI
-const int out = 6;
+const int out = 7;
 
 void prtMainUI();
 void prtInsert(int * n,int * pos,inf A[]);

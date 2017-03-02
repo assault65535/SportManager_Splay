@@ -202,3 +202,21 @@ void prtTree(){
     prt(keyValue);
     printf("BestScore : %d \n",MaxGrade(0,siz[root]-2));
 }
+int cnt;
+
+void deconstruct(inf A[],int rt){
+    pushDown(rt);
+
+    if(ch[rt][0]) deconstruct(A,ch[rt][0]);
+    A[cnt++] = Inf[rt];
+    if(ch[rt][1]) deconstruct(A,ch[rt][1]);
+}
+
+void toArray(inf A[],int l,int r) {
+    Splay(getKth(l, root), 0);
+    Splay(getKth(r + 2, root), root);
+    pushDown(root);
+    pushDown(ch[root][1]);
+    cnt = 0;
+    deconstruct(A,keyValue);
+}
